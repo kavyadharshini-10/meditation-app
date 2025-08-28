@@ -14,7 +14,6 @@ function Timer() {
     { name: "Bell Chime", file: "bell.mp3" },
   ];
 
-  // Timer countdown
   useEffect(() => {
     let timer;
     if (isRunning && time > 0) {
@@ -33,23 +32,23 @@ function Timer() {
     return `${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
   };
 
-  // Timer controls
+ 
   const toggleTimer = () => setIsRunning(!isRunning);
   const setPresetTime = (sec) => { setTime(sec); setIsRunning(false); };
 
-  // Handle dropdown selection
+
   const handleSoundChange = (e) => {
     const soundFile = e.target.value;
     setSelectedSound(soundFile);
     if (audioRef.current) {
-      audioRef.current.pause();  // stop current sound
-      audioRef.current.load();   // load new sound
-      audioRef.current.play();   // play new sound
+      audioRef.current.pause(); 
+      audioRef.current.load(); 
+      audioRef.current.play();  
       setAudioPlaying(true);
     }
   };
 
-  // Play/Pause button
+  
   const toggleAudio = () => {
     if (audioRef.current) {
       if (audioPlaying) {
