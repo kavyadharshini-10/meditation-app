@@ -1,38 +1,71 @@
-.App {
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.app {
   text-align: center;
+  color: #222;
+  transition: all 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header h1 {
+  margin: 0 0 5px;
+  font-size: 2.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.container {
+  display: grid;
+  gap: 20px;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.dark .card {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+button {
+  background: #6a5acd;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
   color: white;
+  font-weight: bold;
+  transition: transform 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timer {
+  font-size: 2rem;
+  font-weight: bold;
 }
+
+.toggle-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  font-size: 1rem;
+}
+

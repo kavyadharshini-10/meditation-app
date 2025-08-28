@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import QuoteCard from "./components/QuoteCard";
+import MoodTracker from "./components/MoodTracker";
+import Timer from "./components/Timer";
+import ThemeToggle from "./components/ThemeToggle";
+
+import lightBg from "./assets/bg-light.jpg";
+import darkBg from "./assets/bg-dark.jpg";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={`app ${darkMode ? "dark" : ""}`}
+      style={{
+        backgroundImage: `url(${darkMode ? darkBg : lightBg})`,
+        backgroundSize: "cover",
+        minHeight: "100vh",
+      }}
+    >
+      <Header />
+      <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className="container">
+        <QuoteCard />
+        <MoodTracker />
+        <Timer />
+      </div>
     </div>
   );
 }
